@@ -18,4 +18,18 @@ class Random extends scala.util.Random {
     }
   }
   
+  /**
+   * Returns a pseudorandom, double value between 0 (inclusive) and the 
+   * specified value (exclusive)
+   */
+  def nextDouble(n:Int):Double = nextDouble() + nextInt(n)
+  
+  /**
+   * Returns a pseudorandom, double value between -N and N (exclusive)
+   */
+  def nextSignedDouble(n:Int):Double = {
+    val v = nextDouble(n)
+    return if(nextBoolean) v else -v
+  }
+  
 }

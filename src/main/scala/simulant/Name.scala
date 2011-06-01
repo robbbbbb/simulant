@@ -1,14 +1,12 @@
 package net._01001111.simulant
 
-object Name {
+object Name extends Randomizer {
   abstract class Gender
   case object Male extends Gender
   case object Female extends Gender
   case object AnyGender extends Gender
   lazy val genders = List(Male,Female)
-  
-  lazy private val random = new Random
-  
+    
   lazy val lastNames = List( "Smith", "Johnson", "Williams", "Jones", "Brown",
     "Davis", "Miller", "Wilson", "Moore", "Taylor", "Anderson", "Thomas",
     "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez",
@@ -65,8 +63,8 @@ object Name {
   
   def firstName:String = firstName(AnyGender)
   
-  def name(gender:Gender):String = firstName(gender) + " " + lastName
+  def fullName(gender:Gender):String = firstName(gender) + " " + lastName
   
-  def name:String = name(AnyGender)
+  def fullName:String = fullName(AnyGender)
     
 }

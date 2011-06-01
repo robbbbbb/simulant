@@ -35,7 +35,7 @@ class NameSpec extends Specification {
     }
   
     "return a random full name" in {
-      val n = Name.name
+      val n = Name.fullName
       n must not be empty
       n must haveWordCount(2)
     }
