@@ -38,15 +38,46 @@ class RandomSpec extends Specification {
       r.select(seq, -1) must throwA[IllegalArgumentException]
     }
     
-    "return a pseudorandom, double value between 0 (inclusive) and a specified value (exclusive)" in {
-      r.nextDouble(1) must be_>=(0D) and be_<=(1D)
-      r.nextDouble(10) must be_>=(0D) and be_<=(10D)
+    "return a pseudorandom, double value between 0 (inclusive) and a specified Int value (exclusive)" in {
+      // multiple tests
+      (1 to 100).foreach { i => r.nextDouble(i) must be_>=(0D) and be_<=(i.toDouble) }
+      // illegal argument
+      r.nextDouble(0) must throwA[IllegalArgumentException]
     }
-
     
-    "return a pseudorandom, double value between -N and N (exclusive)" in {
-      r.nextSignedDouble(1) must be_>=(-1D) and be_<=(1D)
-      r.nextSignedDouble(10) must be_>=(-10D) and be_<=(10D)
+    "return a pseudorandom, double value between 0 (inclusive) and a specified double value (exclusive)" in {
+      // concrete tests
+      List(1D, 1.5, 2D, 0.1, 0.0001, 10.01).foreach { d => 
+        r.nextDouble(d) must be_>=(0D) and be_<=(d)
+      }
+      // multiple random tests
+      (1 to 100).foreach { i => 
+        val d1 = r.nextDouble()
+        val d2 = r.nextInt(i) + r.nextDouble()
+        r.nextDouble(d1) must be_>=(0D) and be_<=(d1)
+        r.nextDouble(d2) must be_>=(0D) and be_<=(d2)
+      }
+      // illegal argument
+      r.nextDouble(0D) must throwA[IllegalArgumentException]
+    }
+    
+    "return a pseudorandom, double value between integers -N and N (exclusive)" in {
+      // multiple tests
+      (1 to 100).foreach { i => r.nextSignedDouble(i) must be_>=(-i.toDouble) and be_<=(i.toDouble) }
+      // illegal argument
+      r.nextSignedDouble(0) must throwA[IllegalArgumentException]
+    }
+    
+    "return a pseudorandom, double value between doubles -N and N (exclusive)" in {
+      // multiple random tests
+      (1 to 100).foreach { i => 
+        val d1 = r.nextDouble()
+        val d2 = r.nextInt(i) + r.nextDouble()
+        r.nextSignedDouble(d1) must be_>=(-d1) and be_<=(d1)
+        r.nextSignedDouble(d2) must be_>=(-d2) and be_<=(d2)
+      }
+      // illegal argument
+      r.nextSignedDouble(0D) must throwA[IllegalArgumentException]
     }
   }
 }
