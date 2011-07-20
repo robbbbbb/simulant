@@ -1,5 +1,7 @@
 package net._01001111.simulant
 
+import net._01001111.simulant.random.Randomizer
+
 case class LatLon(val latitude: Double, val longitude: Double)
 
 object GeoCoordinates extends Randomizer {

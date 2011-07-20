@@ -1,6 +1,6 @@
 name := "simulant"
 
-version := "1.0"
+version := "1.1"
 
 crossScalaVersions := Seq("2.8.1", "2.9.0")
 

@@ -1,6 +1,4 @@
-package net._01001111.simulant.test
-
-import net._01001111.simulant.Random
+package net._01001111.simulant.random
 
 import net._01001111.simulant.test.SimulantMatchers._
 

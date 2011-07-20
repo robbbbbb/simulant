@@ -1,5 +1,7 @@
 package net._01001111.simulant
 
+import net._01001111.simulant.random.Randomizer
+
 object Name extends Randomizer {
   abstract class Gender
   case object Male extends Gender

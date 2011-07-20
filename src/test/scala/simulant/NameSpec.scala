@@ -1,6 +1,4 @@
-package net._01001111.simulant.test
-
-import net._01001111.simulant.Name
+package net._01001111.simulant
 
 import net._01001111.simulant.test.SimulantMatchers._
 

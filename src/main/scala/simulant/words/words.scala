@@ -1,6 +1,6 @@
-package net._01001111
+package net._01001111.simulant
 
-package object simulant {
+package object words {
   
   def compose(f:() => String, d:String, n:Int):String = {
     require(n >= 0) 

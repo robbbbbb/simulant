@@ -1,5 +1,7 @@
 package net._01001111.simulant
 
+import net._01001111.simulant.random.Randomizer
+
 object Internet extends Randomizer {
   
   // top level domains present in http://scala-tools.org/repo-releases/

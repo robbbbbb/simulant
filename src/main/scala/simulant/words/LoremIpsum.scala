@@ -1,4 +1,6 @@
-package net._01001111.simulant
+package net._01001111.simulant.words
+
+import net._01001111.simulant.random.Randomizer
 
 object LoremIpsum extends Randomizer {
   lazy val newline = System.getProperty("line.separator")

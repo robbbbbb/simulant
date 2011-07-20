@@ -1,4 +1,4 @@
-package net._01001111.simulant
+package net._01001111.simulant.random
 
 class Random extends scala.util.Random {
   
