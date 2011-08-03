@@ -1,6 +1,7 @@
 package net._01001111.simulant
 
 import net._01001111.simulant.random.Randomizer
+import net._01001111.simulant.people.Name
 
 object Internet extends Randomizer {
   
